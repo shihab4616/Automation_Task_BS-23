@@ -33,7 +33,7 @@ public class BS_Task_Final {
 				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/form/div[4]")).click();
 				//driver.navigate().to("https://test.sharebus.co/my-buses");
 				
-				// for server respons time delay
+				// for server respons time dely
 				Thread.sleep(8000);
 				//select your user
 				driver.findElement(By.xpath("//div[@id='app']/div/div/div/div/div/span/div")).click();
@@ -72,7 +72,7 @@ public class BS_Task_Final {
 
 				//Departure time (hour/min) 
 				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/form/div/div[3]/div/div/div/div[2]/span/input"))
-				.sendKeys("22:00");
+				.sendKeys("22:45");
 				Thread.sleep(3000);
 				
 				//Departure time (date) 
@@ -82,104 +82,94 @@ public class BS_Task_Final {
 
 				//Departure time (hour/min) 
 				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/form/div/div[3]/div[2]/div/div/div[2]/span/input"))
-				.sendKeys("23:00");
+				.sendKeys("23:45");
 				
 				
 				// I don't want return trip.
-				//Thread.sleep(2000);
-				//driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/form/div/div[3]/div[3]/label")).click();
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/form/div/div[3]/div[3]/label")).click();
 							
+				
+				
 				// You currently have no active buses
 				Thread.sleep(2000);
 				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/form/div[2]/button[2]")).click();
 				
+				// Are you booking this trip on behalf of a handball organization
+				Thread.sleep(8000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/div/div/button")).click();
+					
+				// select ntnui
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//input[@id='']")).sendKeys("NTNUI");
 				
-				//Set up a Sharebus Membership information
+				
+				// Click continue
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/div[2]/button[2]/span")).click();
+				
+				// Choose your passenger goal
+
+				// Need tickets for yourself? no
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[2]/div/button[2]")).click();
+							
+				// Activate ticket discounts? no
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[3]/div/button[2]")).click();
+				
+				// Click create sharebus
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div[2]/div/div[2]/div[5]/button[2]/span")).click();
+				
+
+				// Click publisg sharebus
 				Thread.sleep(10000);
-                driver.findElement(By.xpath("//div[@id='app']/div/div/div[2]/div/div/div/div/button"))
-                .click();
-                
-                
+				driver.findElement(By.xpath("//div[@id='app']/div/div/div[4]/button/span")).click();
 				
-		//	 }
-				/*
-
-		//	public static void Main_TC001() {
-
-				//Select your user
-				//driver.findElement(By.linkText("Sharelead")).click();
-				//Using Select class for selecting value from dropdown  
-				//Select dropdown = new Select(driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div/div/div")));  
-				//dropdown.selectByVisibleText("Sharelead");    
-
-
-				//Set up a Sharebus
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[3]/button/div/span[1]")).click();
-
-
-				//Set up a Sharebus Trip details********
-
-				//From
-				driver.findElement(By.id("startPoint")).sendKeys("Oslo,Norway");
-
-				//To
-				driver.findElement(By.id("destination")).sendKeys("Kolbotn, Norway");
-				//Departure time (date) 
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/form/div[1]/div[3]/div[1]/div[1]/div/div[1]/span/input"))
-				.click();
-				//Departure time (hour/min) 
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/form/div[1]/div[3]/div[1]/div[1]/div/div[2]/span"))
-				.click();
-
-				//Set up a Sharebus Membership information
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/div[1]/div[1]/button[1]"))
-				.click();
-
-				//Continue
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[1]/div/div[2]/button[2]/span[1]"))
-				.click();
-
-
-				//Need tickets for yourself?
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[2]/div/div[2]/div[2]/div/button[2]"))
-				.click();
-
-				//Activate ticket discounts? (Make the tickets cheaper through discounts and get passengers to book faster.)
-
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[2]/div/div[2]/div[3]/div/button[2]"))
-				.click();
-
-				//Create Sharebus
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/div[2]/div[2]/div/div[2]/div[5]/button[2]/span[1]"))
-				.click();
-				//Publish your sharebus.
-				driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div/div[4]/button/span[1]"))
-				.click();
-				//Trip name* Description that characterizes your trip
-				driver.findElement(By.className("form-control rounded")).sendKeys("Description that characterizes your trip");
-				//Category*
-				driver.findElement(By.xpath("//*[@id=\"music1\"]/p")).click();
-				//Optional information Information to the travellers
-				driver.findElement(By.className("border-light w-100 rounded ship-gray")).sendKeys("Information to the travellers");
-				//Link to event page
-				driver.findElement(By.className("form-control rounded")).sendKeys("Information to the travellers");
-
-				//Upload Image 
-				//driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/pim/addEmployee");
-				//add picture
-				driver.findElement(By.className("btn rounded-pill sb-btn-md sb-btn-primary-alt w-auto")).sendKeys("./photos/bs23.jpg");
-
-			//} 
-		    
-		    
-		    
-		    */
-	    
-	    
-		    
-		    // Close the browser
+				// send
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//input[@id='']")).sendKeys("Test");
+				
+				// Click 
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='sport0']/p")).click();
+							
+				// send
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/form/div[4]/div/div/textarea")).sendKeys("test");
+							
+				// send
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/form/div[4]/div[2]/div/input")).sendKeys("https://test.sharebus.co/");
+				
+				
+				// image click 
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("//button[@type='button']")).click();
+				
+				// review published  
+				Thread.sleep(5000);
+				driver.findElement(By.xpath("//div[@id='app']/div/div/form/div[5]/button/span")).click();
+				
+				
+				// Click on my busses 
+				Thread.sleep(2000);
+				driver.findElement(By.xpath("")).click();
+				
+				// assert that the user was successfully logged in
+//	 			Assert.assertTrue(driver.findElement(By.xpath("https://test.sharebus.co/")).isDisplayed());
+				
+				
+				
+				
+			    // Close the browser
 		  //  driver.quit();
-		     
+		    
+		    
+
+		   
+		    
 		    
 	  }
 	}
